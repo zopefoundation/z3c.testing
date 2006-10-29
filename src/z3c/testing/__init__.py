@@ -17,6 +17,7 @@ $Id$
 
 from z3c.testing.app import TestCase
 from z3c.testing.app import InterfaceBaseTest
+from z3c.testing.app import BaseTestIContainer
 from z3c.testing.app import marker_pos
 from z3c.testing.app import marker_kws
 from z3c.testing.directive import registerDirective

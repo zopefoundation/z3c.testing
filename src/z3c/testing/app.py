@@ -81,3 +81,25 @@ class InterfaceBaseTest(TestCase):
         # object test
         self.assert_(verifyObject(self.getTestInterface(), 
             self.makeTestObject()))
+
+
+###############################################################################
+#
+# IContainer Base Tests
+#
+###############################################################################
+
+from zope.app.container.tests.test_icontainer import BaseTestIContainer as BTIC
+from zope.app.container.tests.test_icontainer import DefaultTestData
+
+
+class BaseTestIContainer(InterfaceBaseTest, BTIC):
+
+    def makeTestData(self):
+        return DefaultTestData()
+
+    def getUnknownKey(self):
+        return '10'
+
+    def getBadKeyTypes(self):
+        return [None, ['foo'], 1, '\xf3abc']
