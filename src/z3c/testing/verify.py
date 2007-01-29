@@ -62,7 +62,6 @@ def _verify(iface, candidate, tentative=0, vtype=None):
             # We can't verify decorated methods on classes.
             continue
         else:
-            import pdb; pdb.set_trace()
             if not callable(attr):
                 raise BrokenMethodImplementation(name, "Not a method")
             # sigh, it's callable, but we don't know how to intrspect it, so
