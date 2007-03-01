@@ -2,7 +2,7 @@ import layer
 from zope.app.testing import functional
 import unittest
 
-MyLayer = layer.createLayer(zcml='test.zcml')
+layer.defineLayer('MyLayer', zcml='test.zcml')
 
 def test_suite():
     suite = unittest.TestSuite()

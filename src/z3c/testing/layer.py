@@ -23,7 +23,7 @@ __docformat__ = "reStructuredText"
 import unittest
 import os
 import transaction
-
+import shutil
 from ZODB.FileStorage import FileStorage
 
 from zope import component
@@ -47,28 +47,28 @@ class BufferedDatabaseTestLayer(object):
     path = None
 
     def __init__(self, config_file=None, module=__module__,
-                 name="BufferedTestLayer"):
-        self.config_file = config_file
+                 name="BufferedTestLayer", path=None, clean=False):
+        self.config_file = config_file or functional.Functional.config_file
         self.__module__ = module
         self.__name__ = name
+        self.path = path
+        self.dbDir = os.path.join(self.path,
+                                  'var_%s' % self.__module__)
+        if clean and os.path.isdir(self.dbDir):
+            shutil.rmtree(self.dbDir)
 
     def setUpApplication(self, app):
         # to be overridden by subclass
         pass
         
     def setUp(self):
-
-        dbpath = self.path or os.path.dirname(__file__)
-        dbDirName = 'var_%s' % self.__module__
-        if dbDirName not in os.listdir(dbpath):
-            os.mkdir(os.path.join(dbpath, dbDirName))
-        filename = os.path.join(dbpath, dbDirName, 'TestData.fs')
-
+        if not os.path.exists(self.dbDir):
+            os.mkdir(self.dbDir)
+        filename = os.path.join(self.dbDir, 'TestData.fs')
         fsetup = functional.FunctionalTestSetup(self.config_file)
         self.original = fsetup.base_storage
-
         if not os.path.exists(filename):
-            import pdb; pdb.set_trace()
+
             # Generate a new database from scratch and fill it
             db = database(filename)
             connection = db.open()
@@ -88,15 +88,23 @@ class BufferedDatabaseTestLayer(object):
         fsetup.base_storage = self.original
         fsetup.tearDown()
 
-def createLayer(name='BufferedTestLayer', zcml=None, setUp=None):
+def defineLayer(name, zcml=None, appSetUp=None, clean=False):
     """Helper function for defining layers.
 
-    Usage: defineLayer('foo')
+    Defines a new buffered database layer
+
+    :name: the name of the layer in the module
+    :zcml: optional zcml file relative to package dir
+    :appSetUp: a callable which takes an application object as argument
+    :clean: if True the database directory is deleted on init
     """
     globals = sys._getframe(1).f_globals
     if zcml is not None:
         zcml = os.path.join(os.path.split(globals['__file__'])[0], zcml)
-    l = BufferedDatabaseTestLayer(zcml, globals['__name__'], name)
-    if setUp is not None:
-        l.setUpApplication = setUp
-    return l
+    l = BufferedDatabaseTestLayer(
+        zcml, globals['__name__'], name,
+        path=os.path.dirname(globals['__file__']),
+        clean=clean)
+    if appSetUp is not None:
+        l.setUpApplication = appSetUp
+    globals[name] = l
