@@ -83,7 +83,7 @@ class BufferedDatabaseTestLayer(object):
         fsetup.setUp()
 
     def tearDown(self):
-        fsetup = functional.FunctionalTestSetup()
+        fsetup = functional.FunctionalTestSetup(self.config_file)
         fsetup.base_storage.close()
         fsetup.base_storage = self.original
         fsetup.tearDown()
