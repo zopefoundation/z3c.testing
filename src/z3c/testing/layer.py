@@ -87,6 +87,7 @@ class BufferedDatabaseTestLayer(object):
         fsetup.base_storage.close()
         fsetup.base_storage = self.original
         fsetup.tearDown()
+        fsetup.tearDownCompletely()
 
 def defineLayer(name, zcml=None, appSetUp=None, clean=False):
     """Helper function for defining layers.
