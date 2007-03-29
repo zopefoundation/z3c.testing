@@ -1,4 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope">
-  <include package="zope.app"/>
-  
+  <include
+      zcml:condition="installed zope.app.zcmlfiles"
+      package="zope.app.zcmlfiles"
+      />
+  <include
+      zcml:condition="not-installed zope.app.zcmlfiles"
+      package="zope.app"
+      />
 </configure>

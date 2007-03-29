@@ -15,7 +15,6 @@
 $Id$
 """
 
-import sys
 import unittest
 
 

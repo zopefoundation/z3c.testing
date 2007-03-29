@@ -20,14 +20,10 @@ $Id$
 """
 __docformat__ = "reStructuredText"
 
-import unittest
 import os
 import transaction
 import shutil
 from ZODB.FileStorage import FileStorage
-
-from zope import component
-from zope import schema
 
 from zope.app.appsetup import database
 from zope.app.testing import functional
