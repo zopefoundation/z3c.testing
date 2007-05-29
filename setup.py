@@ -15,7 +15,10 @@ setup(name='z3c.testing',
       package_dir = {'':'src'},
       namespace_packages=['z3c',],
       install_requires = ['setuptools',
-                          'ZODB3',
+                          # the layer does not work with 3.8
+                          # it throughs an IOError, because somewhere
+                          # a file is closed too early
+                          'ZODB3 < 3.8a',
                           'zope.app.appsetup',
                           'zope.app.container',
                           'zope.app.folder',
