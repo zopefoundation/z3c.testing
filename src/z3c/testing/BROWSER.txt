@@ -1,3 +1,10 @@
 =========
  Browser
 =========
+
+  >>> from zope.testbrowser.testing import Browser
+  >>> browser = Browser()
+  >>> browser.handleErrors = False
+  >>> browser.open('http://localhost/++skin++Rotterdam/index.html')
+  >>> browser.url
+  'http://localhost/++skin++Rotterdam/index.html'

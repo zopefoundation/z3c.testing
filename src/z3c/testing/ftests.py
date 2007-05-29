@@ -2,7 +2,14 @@ import layer
 from zope.app.testing import functional
 import unittest
 
-layer.defineLayer('MyLayer', zcml='test.zcml')
+def appSetUp(app):
+    # just some stupid assertion
+    assert(app.__name__ is None)
+
+
+layer.defineLayer('MyLayer', zcml='test.zcml',
+                  appSetUp=appSetUp, clean=True)
+
 
 def test_suite():
     suite = unittest.TestSuite()

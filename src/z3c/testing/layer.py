@@ -32,7 +32,7 @@ import sys
 
 class BufferedDatabaseTestLayer(object):
     """A test layer which creates a filestorage database.
-    
+
     The created database is later used without the need to run through the
     setup again.
     This speeds up functional tests.
@@ -56,7 +56,7 @@ class BufferedDatabaseTestLayer(object):
     def setUpApplication(self, app):
         # to be overridden by subclass
         pass
-        
+
     def setUp(self):
         if not os.path.exists(self.dbDir):
             os.mkdir(self.dbDir)
@@ -76,7 +76,9 @@ class BufferedDatabaseTestLayer(object):
             db.close()
 
         fsetup.base_storage = FileStorage(filename)
-        fsetup.setUp()
+        #hm, somehow the setup closes the database, but we dont want
+        #this.
+        #fsetup.setUp()
 
     def tearDown(self):
         fsetup = functional.FunctionalTestSetup(self.config_file)

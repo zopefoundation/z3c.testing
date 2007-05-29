@@ -1,6 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <include package="zope.app.securitypolicy" file="meta.zcml" />
+
   <include
       zcml:condition="installed zope.app.zcmlfiles"
       package="zope.app.zcmlfiles"
@@ -9,4 +12,16 @@
       zcml:condition="not-installed zope.app.zcmlfiles"
       package="zope.app"
       />
+
+  <include package="zope.app.securitypolicy" />
+  <securityPolicy
+      component="zope.app.securitypolicy.zopepolicy.ZopeSecurityPolicy" />
+  
+  <unauthenticatedPrincipal
+    id="zope.anybody"
+    title="Unauthenticated User" />
+
+  <grant permission="zope.View"
+         principal="zope.anybody" />
+
 </configure>
