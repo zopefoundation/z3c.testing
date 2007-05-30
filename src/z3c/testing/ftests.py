@@ -15,11 +15,13 @@ def test_suite():
     suite = unittest.TestSuite()
     suites = (
         functional.FunctionalDocFileSuite('BROWSER.txt'),
+        # test setup/teardown by calling it twice
+        functional.FunctionalDocFileSuite('BROWSER.txt'),
         )
     for s in suites:
         s.layer=MyLayer
         suite.addTest(s)
-        return suite
+    return suite
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')
