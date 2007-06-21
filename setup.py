@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(name='z3c.testing',
-      version='0.1',
+      version='0.1.1a1',
       author = "Zope Community",
       author_email = "zope3-dev@zope.org",
       description = "Test Helpers for Zope3",

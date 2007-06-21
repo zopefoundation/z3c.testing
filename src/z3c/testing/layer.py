@@ -29,6 +29,7 @@ from zope.app.appsetup import database
 from zope.app.testing import functional
 from zope.app.publication.zopepublication import ZopePublication
 import sys
+from zope.app.component import hooks
 
 class BufferedDatabaseTestLayer(object):
     """A test layer which creates a filestorage database.
@@ -70,11 +71,14 @@ class BufferedDatabaseTestLayer(object):
             connection = db.open()
             root = connection.root()
             app = root[ZopePublication.root_name]
+            # store the site, because the connection gets closed
+            site = hooks.getSite()
             self.setUpApplication(app)
             transaction.commit()
             connection.close()
             db.close()
-
+            hooks.setSite(site)
+            
         # sets up the db stuff normal
         fsetup.setUp()
         # replace the storage with our filestorage
@@ -92,6 +96,11 @@ class BufferedDatabaseTestLayer(object):
         # can do what it wants with it
         fsetup.base_storage = self.original
         fsetup.tearDown()
+
+        #fsetup._config_file = False
+        #fsetup._database_names = None
+        #fsetup._init = False
+
         fsetup.tearDownCompletely()
 
 
