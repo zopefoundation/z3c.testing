@@ -2,8 +2,8 @@
 Changes for z3c.testing
 =======================
 
-After initial release
-=====================
+2007/06/21 0.1.1b1
+==================
 
 - make z3c a namespace
 
