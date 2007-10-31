@@ -15,8 +15,8 @@
 
   <include package="zope.app.securitypolicy" />
   <securityPolicy
-      component="zope.app.securitypolicy.zopepolicy.ZopeSecurityPolicy" />
-  
+      component="zope.securitypolicy.zopepolicy.ZopeSecurityPolicy" />
+
   <unauthenticatedPrincipal
     id="zope.anybody"
     title="Unauthenticated User" />

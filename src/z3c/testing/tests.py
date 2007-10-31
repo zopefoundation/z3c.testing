@@ -11,15 +11,24 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""
+"""Tests for z3c.testing
+
 $Id$
 """
-
 import unittest
 import zope.interface
+from zope.app.testing import functional
 
 from z3c import testing
+from z3c.testing import layer
 
+def appSetUp(app):
+    # just some stupid assertion
+    assert(app.__name__ is None)
+
+
+layer.defineLayer('MyLayer', zcml='test.zcml',
+                  appSetUp=appSetUp, clean=True)
 
 class ISample(zope.interface.Interface):
     """Sample interface."""
@@ -40,9 +49,19 @@ class TestTestCase(testing.InterfaceBaseTest):
 
 
 def test_suite():
-    return unittest.TestSuite((
-        unittest.makeSuite(TestTestCase),
-        ))
+    suite = unittest.TestSuite()
+    # Unit Tests
+    suite.addTest(unittest.makeSuite(TestTestCase))
+    # Functional Tests
+    suites = (
+        functional.FunctionalDocFileSuite('BROWSER.txt'),
+        # test setup/teardown by calling it twice
+        functional.FunctionalDocFileSuite('BROWSER.txt'),
+        )
+    for s in suites:
+        s.layer=MyLayer
+        suite.addTest(s)
+    return suite
 
 if __name__=='__main__':
     unittest.main(defaultTest='test_suite')

@@ -1,10 +1,19 @@
-=======================
-Changes for z3c.testing
-=======================
+=======
+CHANGES
+=======
 
-2007/06/21 0.1.1b1
-==================
+0.2.0 (2007-10-31)
+------------------
 
-- make z3c a namespace
+- Fix pacakge data.
 
-- prevent ConnectionStateError in layer after appsetup is run in layer
+- Move functional tests to tests.
+
+- Remove deprecation warning.
+
+0.1.1b1 (2007-06-21)
+--------------------
+
+- make ``z3c`` a namespace
+
+- prevent ``ConnectionStateError`` in layer after ``appsetup`` is run in layer
