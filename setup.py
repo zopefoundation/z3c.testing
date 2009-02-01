@@ -11,7 +11,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for z3c.viewlet package
+"""Setup for z3c.testing package
 
 $Id$
 """
@@ -24,7 +24,7 @@ def read(*rnames):
 setup(name='z3c.testing',
       version = '0.3.0',
       author='Zope Corporation and Contributors',
-      author_email='zope3-dev@zope.org',
+      author_email='zope-dev@zope.org',
       description='High-level Testing Support',
       long_description=(
           read('README.txt')
@@ -42,7 +42,7 @@ setup(name='z3c.testing',
           'Operating System :: OS Independent',
           'Topic :: Internet :: WWW/HTTP',
           'Framework :: Zope3'],
-      url='http://cheeseshop.python.org/pypi/z3c.testing',
+      url='http://pypi.python.org/pypi/z3c.testing',
       license='ZPL 2.1',
       packages=find_packages('src'),
       package_dir = {'': 'src'},
@@ -55,11 +55,11 @@ setup(name='z3c.testing',
       install_requires = ['setuptools',
                           'ZODB3',
                           'zope.app.appsetup',
-                          'zope.app.container',
-                          'zope.app.folder',
                           'zope.app.publication',
                           'zope.app.security',
                           'zope.app.testing',
+                          'zope.container',
+                          'zope.site',
                           'zope.component',
                           'zope.configuration',
                           'zope.interface',

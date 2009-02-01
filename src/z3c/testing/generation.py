@@ -16,7 +16,7 @@ from ZODB.DemoStorage import DemoStorage
 from zope.testing import doctest
 from zope.app.publication.zopepublication import ZopePublication
 from zope.app.testing import setup
-from zope.app.folder.folder import rootFolder
+from zope.site.folder import rootFolder
 
 
 ###############################################################################

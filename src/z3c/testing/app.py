@@ -88,8 +88,8 @@ class InterfaceBaseTest(TestCase):
 #
 ###############################################################################
 
-from zope.app.container.tests.test_icontainer import BaseTestIContainer as BTIC
-from zope.app.container.tests.test_icontainer import DefaultTestData
+from zope.container.tests.test_icontainer import BaseTestIContainer as BTIC
+from zope.container.tests.test_icontainer import DefaultTestData
 
 
 class BaseTestIContainer(InterfaceBaseTest, BTIC):
