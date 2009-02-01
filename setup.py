@@ -11,7 +11,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for z3c.viewlet package
+"""Setup for z3c.testing package
 
 $Id$
 """
@@ -22,7 +22,7 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 setup(name='z3c.testing',
-      version = '0.3.0dev',
+      version = '0.3.1dev',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
       description='High-level Testing Support',
