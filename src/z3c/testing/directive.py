@@ -40,8 +40,8 @@ def registerDirective(directive, template=template):
 # Zope (content) Meta Directives
 #-----------------------------------------------------------------------------
 import zope.component
-import zope.app.security
+import zope.security
 
 def setUpContentMetaDirectives():
     XMLConfig('meta.zcml', zope.component)()
-    XMLConfig('meta.zcml', zope.app.security)()
+    XMLConfig('meta.zcml', zope.security)()

@@ -1,27 +1,42 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:zcml="http://namespaces.zope.org/zcml">
+    xmlns:browser="http://namespaces.zope.org/browser">
 
-  <include package="zope.app.securitypolicy" file="meta.zcml" />
+  <include package="zope.component" file="meta.zcml" />
+  <include package="zope.security" file="meta.zcml" />
+  <include package="zope.principalregistry" file="meta.zcml" />
+  <include package="zope.securitypolicy" file="meta.zcml" />
+  <include package="zope.browserpage" file="meta.zcml" />
+  <include package="zope.app.publication" file="meta.zcml" />
+  <include package="zope.browserresource" file="meta.zcml" />
 
-  <include
-      zcml:condition="installed zope.app.zcmlfiles"
-      package="zope.app.zcmlfiles"
-      />
-  <include
-      zcml:condition="not-installed zope.app.zcmlfiles"
-      package="zope.app"
-      />
-
-  <include package="zope.app.securitypolicy" />
+  <include package="zope.app.rotterdam" />
+  <include package="zope.app.publication" />
+  <include package="zope.app.appsetup" />
+  <include package="zope.traversing" />
+  <include package="zope.container" />
+  <include package="zope.site" />
+  <include package="zope.annotation" />
+  <include package="zope.security" />
+  <include package="zope.principalregistry" />
+  <include package="zope.securitypolicy" />
   <securityPolicy
       component="zope.securitypolicy.zopepolicy.ZopeSecurityPolicy" />
 
   <unauthenticatedPrincipal
-    id="zope.anybody"
-    title="Unauthenticated User" />
+      id="zope.anybody"
+      title="Unauthenticated User" />
 
-  <grant permission="zope.View"
-         principal="zope.anybody" />
+  <grant
+      permission="zope.View"
+      principal="zope.anybody" />
+
+  <browser:page
+      for="zope.site.interfaces.IFolder"
+      name="index.html"
+      layer="zope.app.rotterdam.Rotterdam"
+      permission="zope.View"
+      class="z3c.testing.tests.ExamplePage"
+      />
 
 </configure>

@@ -8,3 +8,5 @@
   >>> browser.open('http://localhost/++skin++Rotterdam/index.html')
   >>> browser.url
   'http://localhost/++skin++Rotterdam/index.html'
+  >>> print browser.contents
+  Example succeeded.

@@ -48,6 +48,12 @@ class TestTestCase(testing.InterfaceBaseTest):
         return ISample
 
 
+class ExamplePage(object):
+
+    def __call__(self):
+        return "Example succeeded."
+
+
 def test_suite():
     suite = unittest.TestSuite()
     # Unit Tests
@@ -62,6 +68,3 @@ def test_suite():
         s.layer=MyLayer
         suite.addTest(s)
     return suite
-
-if __name__=='__main__':
-    unittest.main(defaultTest='test_suite')
