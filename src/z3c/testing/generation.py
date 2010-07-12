@@ -13,7 +13,7 @@ from ZODB.FileStorage import FileStorage
 from ZODB.DB import DB
 from ZODB.DemoStorage import DemoStorage
 
-from zope.testing import doctest
+import doctest
 from zope.app.publication.zopepublication import ZopePublication
 from zope.app.testing import setup
 from zope.site.folder import rootFolder

@@ -11,6 +11,8 @@ CHANGES
   - ``pos`` provide the positional arguments here
   - ``kws`` provide the keyword arguments here
 
+- Avoid depreacted `zope.testing.doctest` by using python's `doctest`.
+
 
 0.3.1 (2009-12-26)
 ------------------
