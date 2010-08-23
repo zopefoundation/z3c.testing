@@ -2,7 +2,7 @@
 CHANGES
 =======
 
-0.3.2 (unreleased)
+0.3.2 (2010-08-23)
 ------------------
 
 - Do some ``InterfaceBaseTest`` attributes to be able to write less code:
