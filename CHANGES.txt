@@ -6,9 +6,13 @@ CHANGES
 ------------------
 
 - Do some ``InterfaceBaseTest`` attributes to be able to write less code:
+
   - ``iface`` provide the interface here
+
   - ``klass`` provide the class here
+
   - ``pos`` provide the positional arguments here
+
   - ``kws`` provide the keyword arguments here
 
 - Avoid depreacted `zope.testing.doctest` by using python's `doctest`.
