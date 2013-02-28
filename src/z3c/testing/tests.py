@@ -17,26 +17,31 @@ $Id$
 """
 import unittest
 import zope.interface
-from zope.app.testing import functional
+try:
+    from zope.app.testing import functional
+    from z3c.testing import layer
+    HAVE_FTEST = True
+except ImportError:
+    HAVE_FTEST = False
 
 from z3c import testing
-from z3c.testing import layer
 
 def appSetUp(app):
     # just some stupid assertion
     assert(app.__name__ is None)
 
 
-layer.defineLayer('MyLayer', zcml='test.zcml',
-                  appSetUp=appSetUp, clean=True)
+MyLayer = None
+if HAVE_FTEST:
+    layer.defineLayer('MyLayer', zcml='test.zcml',
+                      appSetUp=appSetUp, clean=True)
 
 class ISample(zope.interface.Interface):
     """Sample interface."""
 
+@zope.interface.implementer(ISample)
 class Sample(object):
     """Sample object."""
-
-    zope.interface.implements(ISample)
 
 
 class TestTestCase(testing.InterfaceBaseTest):
@@ -59,12 +64,13 @@ def test_suite():
     # Unit Tests
     suite.addTest(unittest.makeSuite(TestTestCase))
     # Functional Tests
-    suites = (
-        functional.FunctionalDocFileSuite('BROWSER.txt'),
-        # test setup/teardown by calling it twice
-        functional.FunctionalDocFileSuite('BROWSER.txt'),
-        )
-    for s in suites:
-        s.layer=MyLayer
-        suite.addTest(s)
+    if HAVE_FTEST:
+        suites = (
+            functional.FunctionalDocFileSuite('BROWSER.txt'),
+            # test setup/teardown by calling it twice
+            functional.FunctionalDocFileSuite('BROWSER.txt'),
+            )
+        for s in suites:
+            s.layer=MyLayer
+            suite.addTest(s)
     return suite

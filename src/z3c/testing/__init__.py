@@ -26,9 +26,13 @@ from z3c.testing.app import marker_kws
 from z3c.testing.directive import registerDirective
 from z3c.testing.directive import setUpContentMetaDirectives
 
-# generation testing
-from z3c.testing.generation import ContextStub
-from z3c.testing.generation import getDB
-from z3c.testing.generation import getDBRoot
-from z3c.testing.generation import setUpGeneration
-from z3c.testing.generation import tearDownGeneration
+try:
+    # functional extra
+    # generation testing
+    from z3c.testing.generation import ContextStub
+    from z3c.testing.generation import getDB
+    from z3c.testing.generation import getDBRoot
+    from z3c.testing.generation import setUpGeneration
+    from z3c.testing.generation import tearDownGeneration
+except ImportError:
+    pass
