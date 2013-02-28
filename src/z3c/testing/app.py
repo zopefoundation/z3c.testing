@@ -38,13 +38,13 @@ class TestCase(unittest.TestCase):
             return self.iface
 
         msg = 'Subclasses has to implement getTestInterface()'
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
     def getTestClass(self):
         if self.klass is not None:
             return self.klass
 
-        raise NotImplementedError, 'Subclasses has to implement getTestClass()'
+        raise NotImplementedError('Subclasses has to implement getTestClass()')
 
     def getTestPos(self):
         return self.pos

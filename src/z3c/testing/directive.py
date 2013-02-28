@@ -15,7 +15,10 @@
 $Id$
 """
 
-from cStringIO import StringIO
+try:
+    from cStringIO import StringIO
+except:
+    from io import StringIO
 
 from zope.configuration.xmlconfig import xmlconfig
 from zope.configuration.xmlconfig import XMLConfig
@@ -33,7 +36,7 @@ template = """<configure
 
 
 def registerDirective(directive, template=template):
-        xmlconfig(StringIO(template % directive))
+    xmlconfig(StringIO(template % directive))
 
 
 
