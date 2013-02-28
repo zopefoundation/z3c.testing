@@ -2,8 +2,8 @@
 CHANGES
 =======
 
-0.3.3 (unreleased)
-------------------
+1.0.0a1 (2013-02-28)
+--------------------
 
 - Dropped Python 2.4 and 2.5 support, added Python 3.3 support.
 
