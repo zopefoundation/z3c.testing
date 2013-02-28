@@ -112,4 +112,4 @@ class BaseTestIContainer(InterfaceBaseTest, BTIC):
         return '10'
 
     def getBadKeyTypes(self):
-        return [None, ['foo'], 1, '\xf3abc']
+        return [None, ['foo'], 1, b'\xf3abc']
