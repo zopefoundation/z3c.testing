@@ -5,7 +5,10 @@ CHANGES
 0.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Dropped Python 2.4 and 2.5 support, added Python 3.3 support.
+
+- Made functional test tools into the `functional` extra, so no
+  zope.app packages are required.
 
 
 0.3.2 (2010-08-23)
