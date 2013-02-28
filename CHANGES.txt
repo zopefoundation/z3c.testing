@@ -11,7 +11,7 @@ CHANGES
 1.0.0a3 (2013-02-28)
 --------------------
 
-- Nothing changed yet.
+- Bugfix: container test bad keys for Python 3.
 
 
 1.0.0a2 (2013-02-28)
