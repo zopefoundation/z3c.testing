@@ -77,8 +77,7 @@ class TestCase(unittest.TestCase):
 # Public Base Tests
 #
 ###############################################################################
-from zope.interface.verify import verifyObject
-from z3c.testing.verify import verifyClass
+from zope.interface.verify import verifyObject, verifyClass
 
 
 class InterfaceBaseTest(TestCase):

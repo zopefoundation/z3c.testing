@@ -36,12 +36,21 @@ if HAVE_FTEST:
     layer.defineLayer('MyLayer', zcml='test.zcml',
                       appSetUp=appSetUp, clean=True)
 
+def non_overridable(func):
+    return property(lambda self: func.__get__(self))
+
 class ISample(zope.interface.Interface):
     """Sample interface."""
+    def method(a1):
+        pass
 
 @zope.interface.implementer(ISample)
 class Sample(object):
     """Sample object."""
+
+    @non_overridable
+    def method(self, a1):
+        pass
 
 
 class TestTestCase(testing.InterfaceBaseTest):
