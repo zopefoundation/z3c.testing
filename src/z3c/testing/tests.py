@@ -15,10 +15,10 @@
 
 $Id$
 """
+import doctest
 import unittest
 import zope.interface
 try:
-    from zope.app.testing import functional
     from z3c.testing import layer
     HAVE_FTEST = True
 except ImportError:
@@ -75,9 +75,9 @@ def test_suite():
     # Functional Tests
     if HAVE_FTEST:
         suites = (
-            functional.FunctionalDocFileSuite('BROWSER.txt'),
+            doctest.DocFileSuite('BROWSER.txt'),
             # test setup/teardown by calling it twice
-            functional.FunctionalDocFileSuite('BROWSER.txt'),
+            doctest.DocFileSuite('BROWSER.txt'),
             )
         for s in suites:
             s.layer=MyLayer
