@@ -3,10 +3,6 @@
 # Copyright 2006 by refline (Schweiz) AG, CH-5630 Muri
 #
 ###############################################################################
-"""
-$Id$
-"""
-
 import os
 
 from ZODB.FileStorage import FileStorage
@@ -16,7 +12,6 @@ from ZODB.DemoStorage import DemoStorage
 import doctest
 from zope.app.publication.zopepublication import ZopePublication
 from zope.app.testing import setup
-from zope.site.folder import rootFolder
 
 
 ###############################################################################
@@ -56,14 +51,14 @@ class ContextStub(object):
 
 
 def getDBRoot(db):
-    """Returns the Zope root folder."""
+    """Return the Zope root folder."""
     connection = db.open()
     root = connection.root()
     return root[ZopePublication.root_name]
 
 
 def getDB(filename, package=None):
-    """Returns a DB by it's path."""
+    """Return a DB by it's path."""
     if package is not None:
         filename = doctest._module_relative_path(package, filename)
         package = package.__file__

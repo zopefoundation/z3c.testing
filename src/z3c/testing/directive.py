@@ -11,10 +11,6 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""
-$Id$
-"""
-
 try:
     from cStringIO import StringIO
 except:
@@ -22,7 +18,8 @@ except:
 
 from zope.configuration.xmlconfig import xmlconfig
 from zope.configuration.xmlconfig import XMLConfig
-
+import zope.component
+import zope.security
 
 
 # helper for directive testing
@@ -39,11 +36,8 @@ def registerDirective(directive, template=template):
     xmlconfig(StringIO(template % directive))
 
 
-
 # Zope (content) Meta Directives
-#-----------------------------------------------------------------------------
-import zope.component
-import zope.security
+# ----------------------------------------------------------------------------
 
 def setUpContentMetaDirectives():
     XMLConfig('meta.zcml', zope.component)()

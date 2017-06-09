@@ -15,11 +15,7 @@
 
 The testlayer creates a database using a configurator and uses the
 database for all tests.
-
-$Id$
 """
-__docformat__ = "reStructuredText"
-
 import os
 import transaction
 import shutil
@@ -30,6 +26,7 @@ from zope.app.testing import functional
 from zope.app.publication.zopepublication import ZopePublication
 import sys
 from zope.site import hooks
+
 
 class BufferedDatabaseTestLayer(object):
     """A test layer which creates a filestorage database.
@@ -43,7 +40,7 @@ class BufferedDatabaseTestLayer(object):
     __bases__ = ()
     path = None
 
-    def __init__(self, config_file=None, module=__module__,
+    def __init__(self, config_file=None, module=__module__,  # noqa
                  name="BufferedTestLayer", path=None, clean=False):
         self.config_file = config_file or functional.Functional.config_file
         self.__module__ = module
@@ -78,14 +75,14 @@ class BufferedDatabaseTestLayer(object):
             connection.close()
             db.close()
             hooks.setSite(site)
-            
+
         # sets up the db stuff normal
         fsetup.setUp()
         # replace the storage with our filestorage
         fsetup.base_storage = FileStorage(filename)
         # override close on this instance, so files dont get closed on
         # setup/teardown of functionsetup
-        fsetup.base_storage.close = lambda : None
+        fsetup.base_storage.close = lambda: None
 
     def tearDown(self):
         fsetup = functional.FunctionalTestSetup(self.config_file)
@@ -96,11 +93,6 @@ class BufferedDatabaseTestLayer(object):
         # can do what it wants with it
         fsetup.base_storage = self.original
         fsetup.tearDown()
-
-        #fsetup._config_file = False
-        #fsetup._database_names = None
-        #fsetup._init = False
-
         fsetup.tearDownCompletely()
 
 
