@@ -7,6 +7,10 @@ CHANGES
 
 - Standardize namespace __init__
 
+- Add Support for Python 3.4 up to 3.6, PyPy2 and PyPy3.
+
+- Drop suport for Python 2.6 and 3.3.
+
 
 1.0.0a3 (2013-02-28)
 --------------------
@@ -17,7 +21,7 @@ CHANGES
 1.0.0a2 (2013-02-28)
 --------------------
 
-- Migrate to the newest ``zope.interface`` version and remove the 
+- Migrate to the newest ``zope.interface`` version and remove the
   forked code in ``verify.py``.
 
 
