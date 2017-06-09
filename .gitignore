@@ -1,6 +1,10 @@
 *.egg-info/
 *.py[co]
+.installed.cfg
 .tox/
 __pycache__/
+bin/
 build/
+develop-eggs/
 dist/
+src/z3c/testing/var_z3c.testing.tests/TestData.fs*
