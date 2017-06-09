@@ -11,15 +11,14 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for z3c.testing package
-
-$Id$
-"""
+"""Setup for z3c.testing package"""
 import os
 from setuptools import setup, find_packages
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
 
 setup(name='z3c.testing',
       version='1.0.0a4.dev0',
@@ -30,9 +29,9 @@ setup(name='z3c.testing',
           read('README.txt')
           + '\n\n' +
           read('CHANGES.txt')
-          ),
-      keywords = "zope3 testing layer zodb",
-      classifiers = [
+      ),
+      keywords="zope3 testing layer zodb",
+      classifiers=[
           'Development Status :: 5 - Production/Stable',
           'Environment :: Web Environment',
           'Intended Audience :: Developers',
@@ -50,34 +49,35 @@ setup(name='z3c.testing',
       url='http://pypi.python.org/pypi/z3c.testing',
       license='ZPL 2.1',
       packages=find_packages('src'),
-      package_dir = {'': 'src'},
+      package_dir={'': 'src'},
       namespace_packages=['z3c'],
       extras_require=dict(
-        test=[
-            'zope.browserpage',
-            'zope.browserresource',
-            'zope.principalregistry',
-            'zope.publisher',
-            'zope.securitypolicy',
-            ],
-        functional=[
-            'ZODB3',
-            'zope.app.rotterdam',
-            'zope.app.appsetup',
-            'zope.app.publication',
-            'zope.app.testing',
-            'zope.testbrowser < 5',
-            ],),
-      install_requires = ['setuptools',
-                          'zope.container',
-                          'zope.site',
-                          'zope.security',
-                          'zope.component',
-                          'zope.configuration',
-                          'zope.interface >= 4.0.5',
-                          'zope.testing',
-                          ],
-      include_package_data = True,
+          test=[
+              'zope.browserpage',
+              'zope.browserresource',
+              'zope.principalregistry',
+              'zope.publisher',
+              'zope.securitypolicy',
+          ],
+          functional=[
+              'ZODB3',
+              'zope.app.rotterdam',
+              'zope.app.appsetup',
+              'zope.app.publication',
+              'zope.app.testing',
+              'zope.testbrowser < 5',
+          ],
+      ),
+      install_requires=['setuptools',
+                        'zope.container',
+                        'zope.site',
+                        'zope.security',
+                        'zope.component',
+                        'zope.configuration',
+                        'zope.interface >= 4.0.5',
+                        'zope.testing',
+                        ],
+      include_package_data=True,
       test_suite='z3c.testing.tests.test_suite',
-      zip_safe = False,
+      zip_safe=False,
       )
