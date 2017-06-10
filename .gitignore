@@ -1,10 +1,14 @@
 *.egg-info/
 *.py[co]
+.coverage
+.coverage.*
 .installed.cfg
 .tox/
 __pycache__/
 bin/
 build/
+coverage.xml
 develop-eggs/
 dist/
+htmlcov/
 src/z3c/testing/var_z3c.testing.tests/TestData.fs*
