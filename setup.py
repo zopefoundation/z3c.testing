@@ -21,7 +21,7 @@ def read(*rnames):
 
 
 setup(name='z3c.testing',
-      version='1.0.0a4',
+      version='1.0.0a5.dev0',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
       description='High-level Testing Support',
