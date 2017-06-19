@@ -1,2 +1,3 @@
 include *.txt bootstrap.py buildout.cfg tox.ini
+include .coveragerc
 recursive-include src *.py *.txt *.zcml
