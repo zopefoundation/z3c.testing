@@ -9,7 +9,7 @@ CHANGES
 
 - Add support for Python 3.4 up to 3.6, PyPy2 and PyPy3.
 
-- Drop suport for Python 2.6 and 3.3.
+- Drop support for Python 2.6 and 3.3.
 
 
 1.0.0a3 (2013-02-28)

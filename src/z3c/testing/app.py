@@ -11,11 +11,11 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""
-$Id$
-"""
-
 import unittest
+
+from zope.container.tests.test_icontainer import BaseTestIContainer as BTIC
+from zope.container.tests.test_icontainer import DefaultTestData
+from zope.interface.verify import verifyObject, verifyClass
 
 
 ###############################################################################
@@ -25,6 +25,7 @@ import unittest
 ###############################################################################
 marker_pos = object()
 marker_kws = object()
+
 
 class TestCase(unittest.TestCase):
 
@@ -77,20 +78,18 @@ class TestCase(unittest.TestCase):
 # Public Base Tests
 #
 ###############################################################################
-from zope.interface.verify import verifyObject, verifyClass
-
-
 class InterfaceBaseTest(TestCase):
     """Base test for IContainer including interface test."""
 
     def test_verifyClass(self):
         # class test
-        self.assert_(verifyClass(self.getTestInterface(), self.getTestClass()))
+        self.assertTrue(
+            verifyClass(self.getTestInterface(), self.getTestClass()))
 
     def test_verifyObject(self):
         # object test
-        self.assert_(verifyObject(self.getTestInterface(),
-            self.makeTestObject()))
+        self.assertTrue(
+            verifyObject(self.getTestInterface(), self.makeTestObject()))
 
 
 ###############################################################################
@@ -98,11 +97,6 @@ class InterfaceBaseTest(TestCase):
 # IContainer Base Tests
 #
 ###############################################################################
-
-from zope.container.tests.test_icontainer import BaseTestIContainer as BTIC
-from zope.container.tests.test_icontainer import DefaultTestData
-
-
 class BaseTestIContainer(InterfaceBaseTest, BTIC):
 
     def makeTestData(self):

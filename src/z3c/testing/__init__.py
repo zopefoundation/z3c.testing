@@ -11,28 +11,25 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""
-$Id$
-"""
 
 # interface base tests
-from z3c.testing.app import TestCase
-from z3c.testing.app import InterfaceBaseTest
-from z3c.testing.app import BaseTestIContainer
-from z3c.testing.app import marker_pos
-from z3c.testing.app import marker_kws
+from z3c.testing.app import TestCase  # noqa
+from z3c.testing.app import InterfaceBaseTest  # noqa
+from z3c.testing.app import BaseTestIContainer  # noqa
+from z3c.testing.app import marker_pos  # noqa
+from z3c.testing.app import marker_kws  # noqa
 
 # directive helper
-from z3c.testing.directive import registerDirective
-from z3c.testing.directive import setUpContentMetaDirectives
+from z3c.testing.directive import registerDirective  # noqa
+from z3c.testing.directive import setUpContentMetaDirectives  # noqa
 
 try:
     # functional extra
     # generation testing
-    from z3c.testing.generation import ContextStub
-    from z3c.testing.generation import getDB
-    from z3c.testing.generation import getDBRoot
-    from z3c.testing.generation import setUpGeneration
-    from z3c.testing.generation import tearDownGeneration
+    from z3c.testing.generation import ContextStub  # noqa
+    from z3c.testing.generation import getDB  # noqa
+    from z3c.testing.generation import getDBRoot  # noqa
+    from z3c.testing.generation import setUpGeneration  # noqa
+    from z3c.testing.generation import tearDownGeneration  # noqa
 except ImportError:
     pass

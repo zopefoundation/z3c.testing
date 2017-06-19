@@ -26,6 +26,7 @@ except ImportError:
 
 from z3c import testing
 
+
 def appSetUp(app):
     # just some stupid assertion
     assert(app.__name__ is None)
@@ -36,13 +37,17 @@ if HAVE_FTEST:
     layer.defineLayer('MyLayer', zcml='test.zcml',
                       appSetUp=appSetUp, clean=True)
 
+
 def non_overridable(func):
     return property(lambda self: func.__get__(self))
 
+
 class ISample(zope.interface.Interface):
     """Sample interface."""
+
     def method(a1):
         pass
+
 
 @zope.interface.implementer(ISample)
 class Sample(object):
@@ -78,8 +83,8 @@ def test_suite():
             doctest.DocFileSuite('BROWSER.txt'),
             # test setup/teardown by calling it twice
             doctest.DocFileSuite('BROWSER.txt'),
-            )
+        )
         for s in suites:
-            s.layer=MyLayer
+            s.layer = MyLayer
             suite.addTest(s)
     return suite
