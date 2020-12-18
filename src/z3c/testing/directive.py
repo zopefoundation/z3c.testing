@@ -13,7 +13,7 @@
 ##############################################################################
 try:
     from cStringIO import StringIO
-except:
+except ImportError:
     from io import StringIO
 
 from zope.configuration.xmlconfig import xmlconfig
