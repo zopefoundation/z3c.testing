@@ -109,10 +109,10 @@ def defineLayer(name, zcml=None, appSetUp=None, clean=False):
     globals = sys._getframe(1).f_globals
     if zcml is not None:
         zcml = os.path.join(os.path.split(globals['__file__'])[0], zcml)
-    l = BufferedDatabaseTestLayer(
+    layer = BufferedDatabaseTestLayer(
         zcml, globals['__name__'], name,
         path=os.path.dirname(globals['__file__']),
         clean=clean)
     if appSetUp is not None:
-        l.setUpApplication = appSetUp
-    globals[name] = l
+        layer.setUpApplication = appSetUp
+    globals[name] = layer
