@@ -62,6 +62,7 @@ setup(name='z3c.testing',
               'zope.principalregistry',
               'zope.publisher',
               'zope.securitypolicy',
+              'zope.testrunner',
           ],
           functional=[
               'ZODB3',
