@@ -13,15 +13,15 @@
 ##############################################################################
 
 # interface base tests
-from z3c.testing.app import TestCase  # noqa
-from z3c.testing.app import InterfaceBaseTest  # noqa
 from z3c.testing.app import BaseTestIContainer  # noqa
-from z3c.testing.app import marker_pos  # noqa
+from z3c.testing.app import InterfaceBaseTest  # noqa
+from z3c.testing.app import TestCase  # noqa
 from z3c.testing.app import marker_kws  # noqa
-
+from z3c.testing.app import marker_pos  # noqa
 # directive helper
 from z3c.testing.directive import registerDirective  # noqa
 from z3c.testing.directive import setUpContentMetaDirectives  # noqa
+
 
 try:
     # functional extra

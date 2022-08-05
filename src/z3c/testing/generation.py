@@ -3,13 +3,12 @@
 # Copyright 2006 by refline (Schweiz) AG, CH-5630 Muri
 #
 ###############################################################################
+import doctest
 import os
 
-from ZODB.FileStorage import FileStorage
 from ZODB.DB import DB
 from ZODB.DemoStorage import DemoStorage
-
-import doctest
+from ZODB.FileStorage import FileStorage
 from zope.app.publication.zopepublication import ZopePublication
 from zope.app.testing import setup
 

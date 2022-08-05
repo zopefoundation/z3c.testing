@@ -17,14 +17,14 @@ The testlayer creates a database using a configurator and uses the
 database for all tests.
 """
 import os
-import transaction
 import shutil
-from ZODB.FileStorage import FileStorage
-
-from zope.app.appsetup import database
-from zope.app.testing import functional
-from zope.app.publication.zopepublication import ZopePublication
 import sys
+
+import transaction
+from ZODB.FileStorage import FileStorage
+from zope.app.appsetup import database
+from zope.app.publication.zopepublication import ZopePublication
+from zope.app.testing import functional
 from zope.site import hooks
 
 

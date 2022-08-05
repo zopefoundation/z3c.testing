@@ -13,7 +13,9 @@
 ##############################################################################
 """Setup for z3c.testing package"""
 import os
-from setuptools import setup, find_packages
+
+from setuptools import find_packages
+from setuptools import setup
 
 
 def read(*rnames):
@@ -44,12 +46,14 @@ setup(name='z3c.testing',
           'Programming Language :: Python :: 3.7',
           'Programming Language :: Python :: 3.8',
           'Programming Language :: Python :: 3.9',
+          'Programming Language :: Python :: 3.10',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
           'Operating System :: OS Independent',
           'Topic :: Internet :: WWW/HTTP',
-          'Framework :: Zope :: 3'],
+          'Framework :: Zope :: 3',
+      ],
       url='http://pypi.python.org/pypi/z3c.testing',
       license='ZPL 2.1',
       packages=find_packages('src'),
