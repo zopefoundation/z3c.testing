@@ -17,7 +17,10 @@ $Id$
 """
 import doctest
 import unittest
+
 import zope.interface
+
+
 try:
     from z3c.testing import layer
     HAVE_FTEST = True
@@ -29,7 +32,7 @@ from z3c import testing
 
 def appSetUp(app):
     # just some stupid assertion
-    assert(app.__name__ is None)
+    assert app.__name__ is None
 
 
 MyLayer = None

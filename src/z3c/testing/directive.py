@@ -16,10 +16,10 @@ try:
 except ImportError:
     from io import StringIO
 
-from zope.configuration.xmlconfig import xmlconfig
-from zope.configuration.xmlconfig import XMLConfig
 import zope.component
 import zope.security
+from zope.configuration.xmlconfig import XMLConfig
+from zope.configuration.xmlconfig import xmlconfig
 
 
 # helper for directive testing

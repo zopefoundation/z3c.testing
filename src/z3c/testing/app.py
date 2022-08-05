@@ -15,7 +15,8 @@ import unittest
 
 from zope.container.tests.test_icontainer import BaseTestIContainer as BTIC
 from zope.container.tests.test_icontainer import DefaultTestData
-from zope.interface.verify import verifyObject, verifyClass
+from zope.interface.verify import verifyClass
+from zope.interface.verify import verifyObject
 
 
 ###############################################################################
