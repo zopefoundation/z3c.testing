@@ -79,7 +79,8 @@ class ExamplePage:
 def test_suite():
     suite = unittest.TestSuite()
     # Unit Tests
-    suite.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(TestTestCase))
+    suite.addTest(
+        unittest.defaultTestLoader.loadTestsFromTestCase(TestTestCase))
     # Functional Tests
     if HAVE_FTEST:
         suites = (
