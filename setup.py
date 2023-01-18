@@ -56,6 +56,7 @@ setup(name='z3c.testing',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['z3c'],
+      python_requires='>=3.7',
       extras_require=dict(
           test=[
               'zope.browserpage',
