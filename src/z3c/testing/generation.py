@@ -19,7 +19,7 @@ from zope.app.testing import setup
 #
 ###############################################################################
 
-class ContextStub(object):
+class ContextStub:
     """Stub for the context argument passed to evolve scripts.
 
     >>> from zope.app.zopeappgenerations import getRootFolder
@@ -29,7 +29,7 @@ class ContextStub(object):
 
     """
 
-    class ConnectionStub(object):
+    class ConnectionStub:
         def __init__(self, root_folder, db):
             self.root_folder = root_folder
             self.db = db

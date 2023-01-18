@@ -28,7 +28,7 @@ from zope.app.testing import functional
 from zope.site import hooks
 
 
-class BufferedDatabaseTestLayer(object):
+class BufferedDatabaseTestLayer:
     """A test layer which creates a filestorage database.
 
     The created database is later used without the need to run through the

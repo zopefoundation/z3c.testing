@@ -53,7 +53,7 @@ class ISample(zope.interface.Interface):
 
 
 @zope.interface.implementer(ISample)
-class Sample(object):
+class Sample:
     """Sample object."""
 
     @non_overridable
@@ -70,7 +70,7 @@ class TestTestCase(testing.InterfaceBaseTest):
         return ISample
 
 
-class ExamplePage(object):
+class ExamplePage:
 
     def __call__(self):
         return "Example succeeded."
@@ -79,7 +79,8 @@ class ExamplePage(object):
 def test_suite():
     suite = unittest.TestSuite()
     # Unit Tests
-    suite.addTest(unittest.makeSuite(TestTestCase))
+    suite.addTest(
+        unittest.defaultTestLoader.loadTestsFromTestCase(TestTestCase))
     # Functional Tests
     if HAVE_FTEST:
         suites = (
