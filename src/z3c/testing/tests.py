@@ -24,7 +24,7 @@ import zope.interface
 try:
     from z3c.testing import layer
     HAVE_FTEST = True
-except ImportError:
+except ModuleNotFoundError:
     HAVE_FTEST = False
 
 from z3c import testing

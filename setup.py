@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007 Zope Corporation and Contributors.
+# Copyright (c) 2007 Zope Foundation and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -24,8 +24,8 @@ def read(*rnames):
 
 setup(name='z3c.testing',
       version='2.0.dev0',
-      author='Zope Corporation and Contributors',
-      author_email='zope-dev@zope.org',
+      author='Zope Foundation and Contributors',
+      author_email='zope-dev@zope.dev',
       description='High-level Testing Support',
       long_description=(
           read('README.txt')
@@ -39,11 +39,11 @@ setup(name='z3c.testing',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Zope Public License',
           'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: 3.8',
           'Programming Language :: Python :: 3.9',
           'Programming Language :: Python :: 3.10',
           'Programming Language :: Python :: 3.11',
+          'Programming Language :: Python :: 3.12',
+          'Programming Language :: Python :: 3.13',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
@@ -51,12 +51,12 @@ setup(name='z3c.testing',
           'Topic :: Internet :: WWW/HTTP',
           'Framework :: Zope :: 3',
       ],
-      url='http://pypi.python.org/pypi/z3c.testing',
-      license='ZPL 2.1',
+      url='https://github.com/zopefoundation/z3c.testing',
+      license='ZPL-2.1',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['z3c'],
-      python_requires='>=3.7',
+      python_requires='>=3.9',
       extras_require=dict(
           test=[
               'zope.browserpage',
@@ -85,6 +85,5 @@ setup(name='z3c.testing',
                         'zope.testing',
                         ],
       include_package_data=True,
-      test_suite='z3c.testing.tests.test_suite',
       zip_safe=False,
       )

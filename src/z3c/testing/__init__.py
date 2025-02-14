@@ -31,5 +31,5 @@ try:
     from z3c.testing.generation import getDBRoot  # noqa
     from z3c.testing.generation import setUpGeneration  # noqa
     from z3c.testing.generation import tearDownGeneration  # noqa
-except ImportError:
+except ModuleNotFoundError:
     pass
